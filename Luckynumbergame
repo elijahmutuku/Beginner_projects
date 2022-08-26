@@ -1,0 +1,52 @@
+import random
+
+draw=[]
+for i in range(10):
+    n=random.randint(0,20)
+    draw.append(n)
+
+
+bet=[]
+print("You will choose three lucky numbers for your bet. All your number need to match in oder to win.")
+
+def fetch_first_no():
+    p=int(input("Choose your first number: "))
+    if p not in bet:
+        bet.append(p)
+    else:
+        print("Choose a diffrent number.")
+        fetch_first_no()
+def fetch_second_no():
+    k=int(input("Choose your second number: "))
+    if k not in bet:
+        bet.append(k)
+    else:
+        print("Choose a diffrent number.")
+        fetch_second_no()
+def fetch_third_no():
+    l=int(input("Choose your third number: "))
+    if l not in bet:
+        bet.append(l)
+    else:
+        print("Choose a diffrent number.")
+        fetch_third_no()
+
+
+fetch_first_no()
+fetch_second_no()
+fetch_third_no()
+
+stu=False
+for i in bet:
+    if i in draw:
+        stu=True
+        continue
+    else:
+        print("You Loose!! Try Again")
+        stu=False
+        break
+if stu==True:print("You win!")
+
+
+print("This is the draw",draw)
+print("This is your bet",bet)
